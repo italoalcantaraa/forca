@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -25,14 +23,17 @@ public class App {
 
         String resultado;
 
-        while (Game.chancesRestantes > 0 && Game.venceu == false) {
+        while (game.getChancesRestantes() > 0 && game.getVenceu() == false) {
+            System.out.printf("Letra: ");
             char letra = ler.next().charAt(0);
-            System.out.println();
-            System.out.println(game.verificaLetraJogada(letra, palavraSorteada[0], palavraAnomina));
-            System.out.println(Game.getChancesRestantes());
+
+            System.out.println("\n* * * * * * * * * * * * *");
+            System.out.print(game.verificaLetraJogada(letra, palavraSorteada[0], palavraAnomina));
+            System.out.println("    Chances: " + game.getChancesRestantes());
+            System.out.println("* * * * * * * * * * * * *");
             
-            if(Game.chancesRestantes == 0 || Game.venceu == true) {
-                resultado = Game.chancesRestantes == 0 ? "Você perdeu!" : "Você ganhou!";
+            if(game.getChancesRestantes() == 0 || game.getVenceu() == true) {
+                resultado = game.getChancesRestantes()== 0 ? "\nVocê perdeu! ¨_¨" : "\nVocê ganhou! *_*";
                 System.out.println(resultado);
             }
         }

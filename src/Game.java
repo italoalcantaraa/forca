@@ -3,8 +3,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Game {
-    public static int chancesRestantes;
-    public static boolean venceu;
+    private int chancesRestantes;
+    private boolean venceu;
 
     public Game() {
         chancesRestantes = 6;
@@ -42,6 +42,7 @@ public class Game {
 
     public char[] verificaLetraJogada(char letra, String palavra, char[] palavraAnomima) {
         char novapalavra[] = new char[palavra.length()];
+        boolean contemPalavra = false;
 
         // Guarda os caracteres da palavra dentro de uma variável novaPalavra
         for (int i = 0; i < palavra.length(); i++) {
@@ -51,27 +52,31 @@ public class Game {
         for (int i = 0; i < novapalavra.length; i++) {
             if (letra == novapalavra[i]) {
                 palavraAnomima[i] = letra;
+                contemPalavra = true;
             }
             verificaVencedor(palavraAnomima);
         }
+
+        if (!contemPalavra)
+            chancesRestantes--;
 
         return palavraAnomima;
     }
 
     public void verificaVencedor(char[] palavra) {
-        for(int i = 0; i < palavra.length; i++) {
-            if(palavra[i] == '_')
-            return;
+        for (int i = 0; i < palavra.length; i++) {
+            if (palavra[i] == '_')
+                return;
         }
 
         venceu = true;
     }
 
-    public static int getChancesRestantes() {
+    public int getChancesRestantes() {
         return chancesRestantes;
     }
 
-    public static boolean getVenceu() {
+    public boolean getVenceu() {
         return venceu;
     }
 }
