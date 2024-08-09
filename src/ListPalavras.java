@@ -12,9 +12,6 @@ public class ListPalavras {
     // Adicionar palavras
     public void adicionarPalavras(String palavra, String tema) {
         palavrasList.add(new Palavra(palavra, tema));
-
-        Game games = new Game();
-        games.sortearPalavra(palavrasList);
     }
 
     // Consulta de palavras

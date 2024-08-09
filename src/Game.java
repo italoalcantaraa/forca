@@ -23,7 +23,7 @@ public class Game {
         return palavraTema;
     };
 
-    // Exibe a palavra com a ser descoberta
+    // Exibe a palavra a ser descoberta
     // palavraSorteada[0]: é correspondente a palavra sorteada
     // palavraSorteada[1]: é correspondente ao tema
     public char[] exibirPalavraAnonima(String[] palavra) {
@@ -53,10 +53,6 @@ public class Game {
                 palavraAnomima[i] = letra;
             }
             verificaVencedor(palavraAnomima);
-            
-            // Diminui uma chance, pois a letra não existe na palavra 
-            // if(i == (novapalavra.length -1)) 
-            //     chancesRestantes--;
         }
 
         return palavraAnomima;
