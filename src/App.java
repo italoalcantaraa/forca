@@ -4,20 +4,29 @@ public class App {
     public static void main(String[] args) {
 
         Scanner ler = new Scanner(System.in);
-
+        
+        Game game = new Game();
+ 
         ListPalavras listPalavras = new ListPalavras();
+        
         listPalavras.adicionarPalavras("Banana", "Fruta");
         listPalavras.adicionarPalavras("Maca", "Fruta");
         listPalavras.adicionarPalavras("Carro", "Veículo");
         listPalavras.adicionarPalavras("Alegria", "Sentimento");
-
-        Game game = new Game();
+        listPalavras.adicionarPalavras("Moto", "Veículo");
+        listPalavras.adicionarPalavras("Rust", "Linguagem de programação");
+        listPalavras.adicionarPalavras("JavaScript", "Linguagem de programação");
+        listPalavras.adicionarPalavras("Java", "Linguagem de programação");
+        listPalavras.adicionarPalavras("C++", "Linguagem de programação");
+        listPalavras.adicionarPalavras("Python", "Linguagem de programação");
 
         // obtem a palavra sorteada
         String[] palavraSorteada = game.sortearPalavra(listPalavras.retornarPalavras());
         // palavraSorteada[0]: é correspondente a palavra sorteada
         // palavraSorteada[1]: é correspondente ao tema
 
+        // Exibe 
+        
         // obtem a palavra preenchida com '_'
         char[] palavraAnomina = game.exibirPalavraAnonima(palavraSorteada);
 
@@ -37,6 +46,8 @@ public class App {
                 System.out.println(resultado);
             }
         }
+
+        ler.close();
 
     }
 }
